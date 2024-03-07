@@ -1,9 +1,10 @@
+import { ICredenciales } from "./credenciales";
+
 export interface ICliente {
   id?: string;
   nombre: string;
   apellido: string;
-  email: string;
-  password: string;
+  credenciales: ICredenciales
   telefono: string;
   direccion: string;
   fechaRegistro: Date;
