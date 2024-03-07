@@ -24,7 +24,7 @@ export class RegistroComponent {
       email: '',
       password: ''
     },
-    telefono: '',
+    telefono: 0,
     direccion: '',
     fechaRegistro: new Date()
   }

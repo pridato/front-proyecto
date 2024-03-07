@@ -30,15 +30,10 @@ export class RestService {
   }
 
   login(credenciales:ICredenciales): Promise<IRestMessage> {
+    // by get method
     return lastValueFrom(
-      this._httpClient.post<IRestMessage>(
-        this.base+'/usuarios/login',
-        credenciales,
-        {
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json'
-          })
-        }
+      this._httpClient.get<IRestMessage>(
+        this.base+`/usuarios/login?email=${credenciales.email}&password=${credenciales.password}`
       )
     )
   }
