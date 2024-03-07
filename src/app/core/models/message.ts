@@ -5,6 +5,6 @@ export interface IRestMessage{
   mensaje: string;
   error?: string;
   token?: string;
-  datoscliente?: ICliente;
+  datosCliente?: ICliente;
   otrosdatos?: any;
 }

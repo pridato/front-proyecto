@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IRestMessage } from '../models/message';
-import { lastValueFrom } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
 import { ICredenciales } from '../models/credenciales';
 import { ICliente } from '../models/cliente';
+import { IComida } from '../models/comida';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,8 @@ export class RestService {
   base:string = 'http://localhost:8080'
 
   constructor(private _httpClient:HttpClient) { }
+
+  //#region  ZONA CLIENTE
 
   insertCliente(cliente:ICliente): Promise<IRestMessage> {
     console.log(this.base+'/usuarios/add')
@@ -37,5 +40,20 @@ export class RestService {
       )
     )
   }
+
+  //#endregion
+
+  //#region ZONA RESTAURANTE
+
+  public obtenerComidas(): Observable<IComida> {
+    return (
+      this._httpClient.get<IComida>(
+        this.base+'/restaurantes/comidas'
+      )
+    )
+  }
+
+  //#endregion
+
 
 }

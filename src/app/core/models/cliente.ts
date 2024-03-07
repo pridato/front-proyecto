@@ -5,7 +5,7 @@ export interface ICliente {
   nombre: string;
   apellido: string;
   credenciales: ICredenciales
-  telefono: number;
+  telefono?: number;
   direccion: string;
   fechaRegistro: Date;
 }
