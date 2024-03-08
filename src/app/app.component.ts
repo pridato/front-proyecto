@@ -6,11 +6,11 @@ import { IconComponent } from './shared/componentes/themeIcon/icon.component';
 import { RestService } from './core/servicios/RestService.service';
 import { IComida } from './core/models/comida';
 import { StorageService } from './core/servicios/storage.service';
-
+import { ComidasComponent } from './pages/Restaurante/Comidas/comidas.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, IconComponent],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent, IconComponent, ComidasComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
