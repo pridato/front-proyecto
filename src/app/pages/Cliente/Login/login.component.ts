@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ICredenciales } from 'src/app/core/models/credenciales';
 import { RestService } from 'src/app/core/servicios/RestService.service';
@@ -22,7 +22,10 @@ export class LoginComponent {
 
   error = false
 
-  constructor (private restService:RestService, private storage:StorageService, private toastr:ToastrService) {}
+  constructor (private restService:RestService, 
+               private storage:StorageService, 
+               private toastr:ToastrService,
+               private router:Router) {}
 
   async login() {
     try {
@@ -34,7 +37,7 @@ export class LoginComponent {
           closeButton: true,
           progressBar: true
         })
-        console.log('Login correcto', this.storage.cliente())
+        this.router.navigateByUrl('/Restaurante/Comidas')
       } else {
        throw new Error('Error en el login')
       }

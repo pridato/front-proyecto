@@ -45,9 +45,9 @@ export class RestService {
 
   //#region ZONA RESTAURANTE
 
-  public obtenerComidas(): Observable<IComida> {
+  public obtenerComidas(): Observable<IComida[]> {
     return (
-      this._httpClient.get<IComida>(
+      this._httpClient.get<IComida[]>(
         this.base+'/restaurantes/comidas'
       )
     )

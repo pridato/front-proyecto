@@ -1,0 +1,14 @@
+<div class="border w-auto mx-80">
+  @for(comida of this.comidas ; track comida.id){
+    <div class="flex flex-row">
+      <div class="flex flex-col">
+        <img src=comida.imagenBASE64 alt="Imagen de la comida" class="w-40 h-40">
+        <p>{{comida.nombre}}</p>
+        <p>{{comida.precio}}</p>
+      </div>
+      <div class="flex flex-col">
+        <button>Agregar</button>
+      </div>
+    </div>
+  }
+</div>

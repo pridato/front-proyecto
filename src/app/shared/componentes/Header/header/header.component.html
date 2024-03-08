@@ -1,7 +1,7 @@
-<div class="w-full">
-  <nav class="flex items-center flex-row justify-between bg-teal-500 p-6">
-    <div class="flex items-center justify-center text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</span>
+<div class=" w-full">
+  <nav class="flex items-center flex-row justify-between  bg-teal-500 p-6">
+    <div class="pl-72 flex items-center justify-center text-white mr-6">
+      <a [routerLink]="['/Restaurante/Inicio']" class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
     </div>
     <div class="block lg:hidden">
       <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -10,18 +10,27 @@
         </svg>
       </button>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <div class="text-sm lg:flex-grow">
-        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          Docs
+    <div class="w-full flex flex-grow items-center">
+      <div class="text-sm flex-grow cursor-pointer">
+        <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Carta
         </a>
-        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-          Examples
+        <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+          Quienes somos
         </a>
       </div>
-      <div>
-        <a href="#responsive-header" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+        <div class="mr-72 text-xl text-white">
+          @if(!this.hacerBusqueda){
+            <span class="mx-5 cursor-pointer"><i class="fa-solid fa-cart-shopping"></i><span class="absolute text-xs">0</span></span>
+            <a [routerLink]="['Cliente/Login']" class="mx-3"><i class="fa-solid fa-user"></i></a>
+            <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+          }
+          @else{
+            <input type="text" id="searchInput" class="appearance-none border rounded focus:outline-none focus:shadow-outline p-1 text-black text-sm" placeholder="Tu comida favorita...">
+            <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span (click)="toggleBusqueda()" class="cursor-pointer"><i class="fa-solid fa-x"></i></span> 
+          }
+        </div>
       </div>
-    </div>
   </nav>
 </div>

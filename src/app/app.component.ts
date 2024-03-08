@@ -5,6 +5,7 @@ import { HeaderComponent } from './shared/componentes/Header/header/header.compo
 import { IconComponent } from './shared/componentes/themeIcon/icon.component';
 import { RestService } from './core/servicios/RestService.service';
 import { IComida } from './core/models/comida';
+import { StorageService } from './core/servicios/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,10 @@ import { IComida } from './core/models/comida';
 export class AppComponent {
   title = 'proyecto';
 
-  constructor(private rest:RestService) {
+  constructor(private rest:RestService, private storage:StorageService) {
     const $_comidas = this.rest.obtenerComidas()
     $_comidas.subscribe(
-      (response:IComida) => console.log(response)
+      (comidas:IComida[]) => this.storage.guardarComidas(comidas),
     ),
     (error: any) => console.log(error)
   }

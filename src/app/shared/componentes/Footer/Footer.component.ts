@@ -14,4 +14,6 @@ import { Component } from '@angular/core';
     }
   `,
 })
-export class FooterComponent { }
+export class FooterComponent {
+  fecha:number = new Date().getFullYear();
+ }
