@@ -1,4 +1,23 @@
-<app-header class="max-w-full mb-10"/>
-<router-outlet />
-<app-footer class="w-full flex items-center my-5"/>
+@if (this.menu) {
+  <div class="flex justify-center items-center  fixed inset-0 bg-teal-500  text-white">
+    <div (click)="onToggleMenu(!this.menu)" class="font-bold text-4xl" >
+      <span class="cursor-pointer absolute right-20 top-20 ">
+        <i class="fa-solid fa-x"></i>
+      </span>
+      <div class="flex flex-col gap-y-10  justify-center items-center">
+        <a [routerLink]="['/Restaurante/Comidas']" class="cursor-pointer">Carta</a>
+        <span class="cursor-pointer">Quiénes somos</span>
+        <a [routerLink]="['/Cliente/Login']" class="cursor-pointer">Iniciar sesión</a>
+        <span class="cursor-pointer">Gustados</span>
+        <span class="cursor-pointer">Buscar</span>
+      </div>
+    </div>
+  </div>
+} @else {
+  <app-header [menu]="menu" (toggleMenu)="onToggleMenu($event)"/>
+  <router-outlet />
+  <app-footer class="w-full flex items-center my-5"/>
+}
+
+
 

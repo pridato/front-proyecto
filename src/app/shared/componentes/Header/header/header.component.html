@@ -1,30 +1,28 @@
-<div class="">
-  <nav class="flex items-center flex-row justify-between  bg-teal-500 xl:p-6">
-    <div class="p-5 flex items-center justify-center text-white pl-3 xl:pl-72 xl:mr-6">
-      <a [routerLink]="['/Restaurante/Comidas/']" class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
+<nav class="flex items-center justify-between bg-teal-500 xl:p-6">
+  <div class="p-5 flex items-center justify-center text-white pl-3 xl:pl-72 xl:mr-6">
+    <a [routerLink]="['/Restaurante/Comidas/']" class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
+  </div>
+  <div class="hidden xl:flex w-full flex-grow items-center">
+    <div class="text-sm flex-grow cursor-pointer">
+      <a class="block mt-4 xl:inline-block xl:mt-0 text-teal-200 hover:text-white mr-4">
+        Carta
+      </a>
+      <a class="block mt-4 xl:inline-block xl:mt-0 text-teal-200 hover:text-white">
+        Quienes somos
+      </a>
     </div>
-    <div class="hidden xl:flex w-full flex-grow items-center">
-      <div class="text-sm flex-grow cursor-pointer">
-        <a class="block mt-4 xl:inline-block xl:mt-0 text-teal-200 hover:text-white mr-4">
-          Carta
-        </a>
-        <a class="block mt-4 xl:inline-block xl:mt-0 text-teal-200 hover:text-white">
-          Quienes somos
-        </a>
+      <div class="mr-72 text-xl text-white">
+        @if(!this.hacerBusqueda){
+          <span class="mx-5 cursor-pointer"><i class="fa-solid fa-cart-shopping"></i><span class="absolute text-xs">0</span></span>
+          <a [routerLink]="['Cliente/Login']" class="mx-3"><i class="fa-solid fa-user"></i></a>
+          <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+        }
+        @else{
+          <input type="text" id="searchInput" class="appearance-none border rounded focus:outline-none focus:shadow-outline p-1 text-black text-sm" placeholder="Tu comida favorita...">
+          <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <span (click)="toggleBusqueda()" class="cursor-pointer"><i class="fa-solid fa-x"></i></span> 
+        }
       </div>
-        <div class="mr-72 text-xl text-white">
-          @if(!this.hacerBusqueda){
-            <span class="mx-5 cursor-pointer"><i class="fa-solid fa-cart-shopping"></i><span class="absolute text-xs">0</span></span>
-            <a [routerLink]="['Cliente/Login']" class="mx-3"><i class="fa-solid fa-user"></i></a>
-            <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
-          }
-          @else{
-            <input type="text" id="searchInput" class="appearance-none border rounded focus:outline-none focus:shadow-outline p-1 text-black text-sm" placeholder="Tu comida favorita...">
-            <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <span (click)="toggleBusqueda()" class="cursor-pointer"><i class="fa-solid fa-x"></i></span> 
-          }
-        </div>
-      </div>
-      <span (click)="abrirMenu()" class="flex xl:hidden mx-3 pr-5 cursor-pointer font-bold text-white"><i class="fa-solid fa-bars"></i></span>
-  </nav>
-</div>
+    </div>
+    <span (click)="abrirMenu()" class="flex xl:hidden mx-3 pr-5 cursor-pointer font-bold text-white"><i class="fa-solid fa-bars"></i></span>
+</nav>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -16,12 +16,14 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent { 
   hacerBusqueda: boolean = false;
+  @Input()menu:boolean = false
+  @Output() toggleMenu: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   toggleBusqueda() {
     this.hacerBusqueda = !this.hacerBusqueda;
   }
 
   abrirMenu() {
-    console.log('abrir menu');
+    this.toggleMenu.emit(!this.menu);
   }
 }
