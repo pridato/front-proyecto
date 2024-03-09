@@ -1,12 +1,7 @@
-<div class="mx-64 px-5 h-auto gap-y-5 pb-5">
-  <div class="flex justify-center">
-    <div class="text-orange-200 cursor-pointer">
-      <div class="text-6xl"><i class="fa-solid fa-burger hover:bg-teal-200 p-4  rounded-full"></i></div>
-      <div>hamburguesas</div>
-    </div>
-  </div>
-  <div class="font-bold text-2xl ml-2 mb-2">Nuestros Platos más gustados</div>
-  <div class="grid grid-cols-4">
+<div class="2xl:mx-64 px-5 h-auto gap-y-5 pb-5">
+  <app-tiposcomida />
+  <div class="flex justify-center xl:justify-normal font-bold text-2xl ml-2 mb-2">Nuestros Platos más gustados</div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 md:gap-x-10" id="gridTransform">
     @for(comida of this.comidas ; track comida.id){
       <div class="flex flex-col justify-center items-center p-2">
         <a class="border shadow ">

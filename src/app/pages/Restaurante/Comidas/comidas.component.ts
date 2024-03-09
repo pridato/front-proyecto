@@ -1,20 +1,21 @@
 import { Component, effect } from '@angular/core';
 import { StorageService } from 'src/app/core/servicios/storage.service';
+import { TiposcomidaComponent } from './tiposComidas/tiposcomida.component';
+import { IComida } from 'src/app/core/models/comida';
 
 @Component({
   selector: 'app-comidas',
   standalone: true,
-  imports: [],
+  imports: [TiposcomidaComponent],
   templateUrl: './comidas.component.html',
   styleUrl: './comidas.component.css'
 })
 export class ComidasComponent {
 
-  comidas = this.storage.comidas()
+  comidas:IComida[] = []
   constructor(private storage:StorageService) {
     effect(() => {
-      console.log(this.storage.comidas())
-      this.comidas = this.storage.comidas()
+      this.comidas = this.storage.comidas().filter(comida => !comida.tipo.match(/^b-/));
     })
   }
 }
