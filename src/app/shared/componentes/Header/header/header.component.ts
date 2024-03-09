@@ -21,4 +21,7 @@ export class HeaderComponent {
     this.hacerBusqueda = !this.hacerBusqueda;
   }
 
+  abrirMenu() {
+    console.log('abrir menu');
+  }
 }

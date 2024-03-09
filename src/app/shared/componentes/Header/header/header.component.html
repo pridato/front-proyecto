@@ -1,16 +1,9 @@
-<div class=" w-full">
-  <nav class="flex items-center flex-row justify-between  bg-teal-500 p-6">
-    <div class="pl-72 flex items-center justify-center text-white mr-6">
-      <a [routerLink]="['/Restaurante/Inicio']" class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
+<div class="">
+  <nav class="flex items-center flex-row justify-between  bg-teal-500 lg:p-6">
+    <div class="p-5 flex items-center justify-center text-white pl-3 lg:pl-72 lg:mr-6">
+      <a [routerLink]="['/Restaurante/Comidas/']" class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
     </div>
-    <div class="block lg:hidden">
-      <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-        <svg class="fill-current h-3 w-3" >
-          <title>Menu</title>
-        </svg>
-      </button>
-    </div>
-    <div class="w-full flex flex-grow items-center">
+    <div class="hidden lg:flex w-full flex-grow items-center">
       <div class="text-sm flex-grow cursor-pointer">
         <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
           Carta
@@ -32,5 +25,7 @@
           }
         </div>
       </div>
+      <span (click)="abrirMenu()" class="flex lg:hiddden mx-3 pr-5 cursor-pointer font-bold text-white"><i class="fa-solid fa-bars"></i></span>
   </nav>
+ 
 </div>
