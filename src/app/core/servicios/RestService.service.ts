@@ -53,6 +53,11 @@ export class RestService {
     )
   }
 
+  public obtenerComida(id: string): Observable<IComida> {
+    return this._httpClient.get<IComida>(this.base + `/restaurantes/comidas/${id}`);
+  }
+  
+
   //#endregion
 
 

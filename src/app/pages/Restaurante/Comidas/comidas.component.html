@@ -5,7 +5,7 @@
     @for(comida of this.comidas ; track comida.id){
       <div class="flex flex-col justify-center items-center p-2">
         <a class="border shadow ">
-          <img src="data:image/png;base64,{{comida.imagenBASE64}}" alt="Imagen de la comida" class="w-80 h-52 cursor-pointer">
+          <img [routerLink]="['/Restaurante/', comida.id]" src="data:image/png;base64,{{comida.imagenBASE64}}" alt="Imagen de la comida" class="w-80 h-52 cursor-pointer">
           <div class="w-80 flex justify-between items-center px-2 py-2">
             <p>{{comida.nombre}}</p>
             <div class="flex gap-x-2">
