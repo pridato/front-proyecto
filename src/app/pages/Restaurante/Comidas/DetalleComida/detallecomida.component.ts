@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IComida } from 'src/app/core/models/comida';
 import { RestService } from 'src/app/core/servicios/RestService.service';
 import { StorageService } from 'src/app/core/servicios/storage.service';
@@ -7,13 +7,13 @@ import { StorageService } from 'src/app/core/servicios/storage.service';
 @Component({
   selector: 'app-detallecomida',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './detallecomida.component.html',
   styleUrl: './detallecomida.component.css'
 })
 export class DetallecomidaComponent {
 
-  private id!: string;
+  id!: string;
   comida!:IComida
 
   constructor(private activatedRoute: ActivatedRoute, private rest:RestService) {

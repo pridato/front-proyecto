@@ -3,6 +3,7 @@ export interface IComida {
     nombre: string;
     tipo: string;
     ingredientes: string[];
+    especificacion: string;
     informacionAdicional: {
         calorias: number;
         grasas: number;

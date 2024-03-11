@@ -9,8 +9,8 @@ import { RouterLink } from '@angular/router';
   ],
   templateUrl: './header.component.html',
   styles: `
-    :host {
-      display: block;
+    nav {
+      background-color: #2f695C;
     }
   `,
 })
