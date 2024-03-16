@@ -25,7 +25,8 @@ export class RegistroComponent {
       password: ''
     },
     direccion: '',
-    fechaRegistro: new Date()
+    fechaRegistro: new Date(),
+    id_cocinero: ''
   }
   
   constructor( private restService:RestService) {}

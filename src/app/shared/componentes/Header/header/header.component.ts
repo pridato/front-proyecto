@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './header.component.html',
   styles: `

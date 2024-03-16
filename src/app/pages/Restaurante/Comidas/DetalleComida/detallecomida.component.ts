@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IComida } from 'src/app/core/models/comida';
 import { RestService } from 'src/app/core/servicios/RestService.service';
@@ -13,15 +13,24 @@ import { StorageService } from 'src/app/core/servicios/storage.service';
 })
 export class DetallecomidaComponent {
 
-  id!: string;
+  @Input('id') id!:string;
   comida!:IComida
+  elementoComida!:{comida:IComida, cantidad:number}
 
-  constructor(private activatedRoute: ActivatedRoute, private rest:RestService) {
-    this.activatedRoute.params.subscribe(param => this.id = param['id'])
-
+  ngOnInit(){
+    console.log('id', this.id)
     this.rest.obtenerComida(this.id).subscribe((comida: IComida) => {
-      console.log(comida); 
       this.comida = comida
+      this.elementoComida = {comida: this.comida, cantidad : 1}
     });
+  }
+  constructor(private rest:RestService, private storage:StorageService) {
+    console.log('id', this.id)
+    
+  }
+
+  comprar(){
+    this.storage.guardarComidasCompradas(this.elementoComida)
+    console.log(this.storage.recuperarComidasCompradas())
   }
 }

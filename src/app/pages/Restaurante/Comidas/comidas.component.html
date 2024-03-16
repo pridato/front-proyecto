@@ -6,7 +6,7 @@
       <div class="flex flex-col justify-center items-center p-2">
         <a class="border shadow rounded-2xl">
           <img 
-            [routerLink]="['/Restaurante/', comida.id]" 
+            [routerLink]="['/Restaurante/Detalle/', comida.id]" 
             src="data:image/png;base64,{{comida.imagenBASE64}}" 
             alt="Imagen de la comida" 
             class="w-80 h-52 cursor-pointer rounded-2xl object-cover"
@@ -15,7 +15,7 @@
             <p class="font-semibold">{{comida.nombre}}</p>
             <div class="flex gap-x-2">
               <p>{{comida.precio}}€</p>
-              <button class="text-xl"><i class="fa-solid fa-cart-plus"></i></button>
+              <button (click)="comprar(comida)" class="text-xl"><i class="fa-solid fa-cart-plus"></i></button>
             </div>
           </div>
         </a>

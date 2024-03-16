@@ -19,15 +19,33 @@ export class StorageService {
       nombre: '',
       direccion: '',
       fechaRegistro: new Date(),
-      telefono: 0
+      telefono: 0,
+      id_cocinero: ''
     }
   )
 
   public comidas = signal<IComida[]>([])
-
+  public comidasCompradas = signal<{comida:IComida, cantidad:number}[]>([])
   //#endregion
 
   //#region METODOS DE ALMACENAMIENTO
+
+  guardarComidasCompradas(comida:{comida:IComida, cantidad:number}) {
+    // 1º comprobar si ese elemento ya está en comidas, si es así aumentar cantidad
+    let _index = this.comidasCompradas().findIndex((elemento) => elemento.comida.id === comida.comida.id)
+    if(_index !== -1) {
+      this.comidasCompradas.update((comidas) => {
+        comidas[_index].cantidad += 1
+        return comidas
+      })
+    }else {
+      this.comidasCompradas.update((comidas) => [...comidas, comida])
+    }
+  }
+
+  recuperarComidasCompradas():{comida:IComida, cantidad:number}[] {
+    return this.comidasCompradas()
+  }
 
   guardarCliente(cliente:ICliente) {
     this.cliente.update(() => cliente)
@@ -37,8 +55,8 @@ export class StorageService {
     return this.cliente()
   }
 
-  guardarComidas(comidas:IComida[]) {
-    this.comidas.update(() => comidas)
+  guardarComidas(comida:IComida[]) {
+    this.comidas.update(() => comida)
   }
 
   recuperarComidas():IComida[] {

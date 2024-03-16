@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, afterNextRender } from '@angular/core';
 import { IRestMessage } from '../models/message';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ICredenciales } from '../models/credenciales';
@@ -13,7 +13,11 @@ export class RestService {
 
   base:string = 'http://localhost:8080'
 
-  constructor(private _httpClient:HttpClient) { }
+  constructor(private _httpClient:HttpClient) { 
+    afterNextRender(() => {
+      localStorage.setItem('cliente', 'clienteprueba')
+    })
+  }
 
   //#region  ZONA CLIENTE
 

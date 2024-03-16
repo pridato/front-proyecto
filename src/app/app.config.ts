@@ -1,16 +1,17 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { Router, provideRouter } from '@angular/router';
-
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
+
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(HttpClientModule),
-    provideRouter(routes),
+    provideHttpClient(
+      withFetch()
+    ),
+    provideRouter(routes, withComponentInputBinding()),
     provideAnimations(),
-    provideToastr(),
-    Router
+    provideToastr()
   ]
 };

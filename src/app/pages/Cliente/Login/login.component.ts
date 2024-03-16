@@ -1,3 +1,4 @@
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -21,29 +22,34 @@ export class LoginComponent {
   }
 
   error = false
-
+  user!: SocialUser;
+  loggedIn!: boolean;
+  
   constructor (private restService:RestService, 
                private storage:StorageService, 
-               private toastr:ToastrService,
-               private router:Router) {}
+               private router:Router
+              ) {
+
+  }
 
   async login() {
     try {
-      const _cliente = await this.restService.login(this.credenciales)
-      if (_cliente.codigo == 200){
-        this.storage.guardarCliente(_cliente.datosCliente!)
-        this.toastr.success('Login correcto', 'Se ha logueado correctamente en nuestro servicio!', {
-          timeOut: 1500,
-          closeButton: true,
-          progressBar: true
-        })
+      const _res = await this.restService.login(this.credenciales)
+      console.log(_res)
+      if (_res.codigo == 200){
+        this.storage.guardarCliente(_res.datosCliente!)
+        
         this.router.navigateByUrl('/Restaurante/Comidas')
       } else {
        throw new Error('Error en el login')
       }
     } catch (error) {
+      console.log(error)
       this.error = true
     }
     
+  }
+
+  loginGoogle() {
   }
 }
