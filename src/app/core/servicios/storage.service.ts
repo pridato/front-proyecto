@@ -43,6 +43,31 @@ export class StorageService {
     }
   }
 
+  actualizarComidasCompradas(comida:{comida:IComida, cantidad:number}, operacion:string) {
+
+    if(operacion === 'eliminar') {
+      let _index = this.comidasCompradas().findIndex((elemento) => elemento.comida.id === comida.comida.id)
+      if(_index !== -1) {
+        this.comidasCompradas.update((comidas) => {
+          comidas.splice(_index, 1)
+          return comidas
+        })
+      }
+      return
+    }
+
+    comida.cantidad = operacion === 'restar' && comida.cantidad > 1 ? comida.cantidad - 1 : comida.cantidad + 1
+    let _index = this.comidasCompradas().findIndex((elemento) => elemento.comida.id === comida.comida.id)
+    if(_index !== -1) {
+      this.comidasCompradas.update((comidas) => {
+        comidas[_index].cantidad = comida.cantidad
+        return comidas
+      })
+    }
+
+  }
+
+
   recuperarComidasCompradas():{comida:IComida, cantidad:number}[] {
     return this.comidasCompradas()
   }

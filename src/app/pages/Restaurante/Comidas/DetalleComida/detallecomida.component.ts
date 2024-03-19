@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, Input, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IComida } from 'src/app/core/models/comida';
 import { RestService } from 'src/app/core/servicios/RestService.service';
 import { StorageService } from 'src/app/core/servicios/storage.service';
@@ -14,8 +15,14 @@ import { StorageService } from 'src/app/core/servicios/storage.service';
 export class DetallecomidaComponent {
 
   @Input('id') id!:string;
+
+  private toastr = inject(ToastrService)
+  private rest = inject(RestService)
+  private storage = inject(StorageService)
+
   comida!:IComida
   elementoComida!:{comida:IComida, cantidad:number}
+  
 
   ngOnInit(){
     console.log('id', this.id)
@@ -24,13 +31,12 @@ export class DetallecomidaComponent {
       this.elementoComida = {comida: this.comida, cantidad : 1}
     });
   }
-  constructor(private rest:RestService, private storage:StorageService) {
-    console.log('id', this.id)
-    
-  }
 
   comprar(){
     this.storage.guardarComidasCompradas(this.elementoComida)
+    this.toastr.success(`Su ${this.elementoComida.comida.nombre} ya está en proceso`, `Item Agregado `, {
+      timeOut: 1500,
+    })
     console.log(this.storage.recuperarComidasCompradas())
   }
 }

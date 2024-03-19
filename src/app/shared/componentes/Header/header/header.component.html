@@ -1,10 +1,10 @@
 <nav class="mb-10 flex items-center justify-between bg-teal-500 xl:p-6">
   <div class="p-5 flex items-center justify-center text-white pl-3 xl:pl-72 xl:mr-6">
-    <a [routerLink]="['/Restaurante/Comidas/']" class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
+    <a  class="font-semibold text-xl tracking-tight">TuRestauranteEnCasa</a>
   </div>
   <div class="hidden xl:flex w-full flex-grow items-center">
     <div class="flex-grow cursor-pointer text-white uppercase">
-      <a class="font-sans block mt-4 xl:inline-block xl:mt-0 mr-4">
+      <a [routerLink]="['/Restaurante/Comidas/']" class="font-sans block mt-4 xl:inline-block xl:mt-0 mr-4">
         Carta
       </a>
       <a class="px-5 block mt-4 xl:inline-block xl:mt-0">
@@ -16,7 +16,7 @@
     </div>
       <div class="mr-72 text-xl text-white">
         @if(!this.hacerBusqueda){
-          <span class="mx-5 cursor-pointer"><i class="fa-solid fa-cart-shopping"></i><span class="absolute text-xs">0</span></span>
+          <span (click)="abrirPedido()" class="mx-5 cursor-pointer"><i class="fa-solid fa-cart-shopping"></i><span class="absolute text-xs rounded-full  px-1">{{this.cantidad}}</span></span>
           <a [routerLink]="['Cliente/Login']" class="mx-3"><i class="fa-solid fa-user"></i></a>
           <span (click)="toggleBusqueda()" class="cursor-pointer mx-3"><i class="fa-solid fa-magnifying-glass"></i></span>
         }
