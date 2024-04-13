@@ -1,73 +1,103 @@
 {
-  "hash": "f39b2e31",
-  "configHash": "b3a3f225",
-  "lockfileHash": "5bed702d",
-  "browserHash": "5e74249e",
+  "hash": "fb6b36b0",
+  "configHash": "582b9035",
+  "lockfileHash": "af0db61e",
+  "browserHash": "e2d618f9",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "e652e26e",
+      "fileHash": "e3a5abfe",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "f6059ffa",
+      "fileHash": "7aadf7fe",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "543e0893",
+      "fileHash": "1f822695",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "650f55e3",
+      "fileHash": "79952a96",
+      "needsInterop": false
+    },
+    "@angular/material/card": {
+      "src": "../../../../../node_modules/@angular/material/fesm2022/card.mjs",
+      "file": "@angular_material_card.js",
+      "fileHash": "f403d69f",
+      "needsInterop": false
+    },
+    "@angular/material/core": {
+      "src": "../../../../../node_modules/@angular/material/fesm2022/core.mjs",
+      "file": "@angular_material_core.js",
+      "fileHash": "bb556563",
+      "needsInterop": false
+    },
+    "@angular/material/datepicker": {
+      "src": "../../../../../node_modules/@angular/material/fesm2022/datepicker.mjs",
+      "file": "@angular_material_datepicker.js",
+      "fileHash": "7d2aed1a",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "fd68dc99",
+      "fileHash": "f030a086",
       "needsInterop": false
     },
     "@angular/platform-browser/animations": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
       "file": "@angular_platform-browser_animations.js",
-      "fileHash": "99c75eb8",
+      "fileHash": "8db529e8",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations/async": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
+      "file": "@angular_platform-browser_animations_async.js",
+      "fileHash": "ed6f9a86",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "328ff807",
-      "needsInterop": false
-    },
-    "angular-calendar": {
-      "src": "../../../../../node_modules/angular-calendar/fesm2020/angular-calendar.mjs",
-      "file": "angular-calendar.js",
-      "fileHash": "aa1eaba6",
+      "fileHash": "d0ba4789",
       "needsInterop": false
     },
     "ngx-toastr": {
       "src": "../../../../../node_modules/ngx-toastr/fesm2022/ngx-toastr.mjs",
       "file": "ngx-toastr.js",
-      "fileHash": "c93ec0ae",
+      "fileHash": "280fb4e2",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "2fb01e94",
+      "fileHash": "f288aa49",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-NS2XCX7M": {
-      "file": "chunk-NS2XCX7M.js"
+    "browser-WZAZQ67N": {
+      "file": "browser-WZAZQ67N.js"
+    },
+    "chunk-IQ3FXZ4O": {
+      "file": "chunk-IQ3FXZ4O.js"
+    },
+    "chunk-53WIQMH4": {
+      "file": "chunk-53WIQMH4.js"
+    },
+    "chunk-3W36KTNS": {
+      "file": "chunk-3W36KTNS.js"
+    },
+    "chunk-FFOC2MCE": {
+      "file": "chunk-FFOC2MCE.js"
     },
     "chunk-PJWGX6PG": {
       "file": "chunk-PJWGX6PG.js"
