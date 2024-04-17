@@ -5,13 +5,12 @@ import { Observable, lastValueFrom } from 'rxjs';
 import { ICredenciales } from '../models/credenciales';
 import { ICliente } from '../models/cliente';
 import { IComida } from '../models/comida';
+import { springUrl } from 'src/app/shared/globales/globales';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RestService {
-
-  base:string = 'http://localhost:8080'
 
   constructor(private _httpClient:HttpClient) { 
     afterNextRender(() => {
@@ -22,10 +21,11 @@ export class RestService {
   //#region  ZONA CLIENTE
 
   insertCliente(cliente:ICliente): Promise<IRestMessage> {
-    console.log(this.base+'/usuarios/add')
+    
+    console.log(springUrl+'/usuarios/add')
     return lastValueFrom(
       this._httpClient.post<IRestMessage>(
-        this.base+'/usuarios/add',
+        springUrl+'/usuarios/add',
         cliente,
         {
           headers: new HttpHeaders({
@@ -40,7 +40,7 @@ export class RestService {
     // by get method
     return lastValueFrom(
       this._httpClient.get<IRestMessage>(
-        this.base+`/usuarios/login?email=${credenciales.email}&password=${credenciales.password}`
+        springUrl+`/usuarios/login?email=${credenciales.email}&password=${credenciales.password}`
       )
     )
   }
@@ -52,17 +52,20 @@ export class RestService {
   public obtenerComidas(): Observable<IComida[]> {
     return (
       this._httpClient.get<IComida[]>(
-        this.base+'/restaurantes/comidas'
+        springUrl+'/restaurantes/comidas'
       )
     )
   }
 
   public obtenerComida(id: string): Observable<IComida> {
-    return this._httpClient.get<IComida>(this.base + `/restaurantes/comidas/${id}`);
+    return this._httpClient.get<IComida>(springUrl + `/restaurantes/comidas/${id}`);
   }
   
 
   //#endregion
 
+  //#region ZONA CHEFS
 
+  
+  //#endregion
 }
