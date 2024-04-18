@@ -24,11 +24,22 @@ export class StorageService {
     }
   )
 
+  // esta señal vamos a guardar dentro el jwt para enviarlo a través de un interceptor en cada pet. a spring
+  public jwt = signal<string>('')
+
   public comidas = signal<IComida[]>([])
   public comidasCompradas = signal<{comida:IComida, cantidad:number}[]>([])
   //#endregion
 
   //#region METODOS DE ALMACENAMIENTO
+
+  guardarJwt(jwt:string) {
+    this.jwt.set(jwt)
+  }
+
+  recuperarJwt() :string {
+    return this.jwt()
+  }
 
   guardarComidasCompradas(comida:{comida:IComida, cantidad:number}) {
     // 1º comprobar si ese elemento ya está en comidas, si es así aumentar cantidad

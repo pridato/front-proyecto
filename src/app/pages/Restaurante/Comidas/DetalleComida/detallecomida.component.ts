@@ -23,9 +23,10 @@ export class DetallecomidaComponent {
   comida!:IComida
   elementoComida!:{comida:IComida, cantidad:number}
   
+  constructor() {
+  }
 
   ngOnInit(){
-    console.log('id', this.id)
     this.rest.obtenerComida(this.id).subscribe((comida: IComida) => {
       this.comida = comida
       this.elementoComida = {comida: this.comida, cantidad : 1}

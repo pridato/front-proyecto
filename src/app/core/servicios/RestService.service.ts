@@ -12,20 +12,23 @@ import { springUrl } from 'src/app/shared/globales/globales';
 })
 export class RestService {
 
+
   constructor(private _httpClient:HttpClient) { 
     afterNextRender(() => {
       localStorage.setItem('cliente', 'clienteprueba')
     })
+
+    
   }
 
   //#region  ZONA CLIENTE
 
   insertCliente(cliente:ICliente): Promise<IRestMessage> {
     
-    console.log(springUrl+'/usuarios/add')
+    console.log(springUrl+'/Cliente/add')
     return lastValueFrom(
       this._httpClient.post<IRestMessage>(
-        springUrl+'/usuarios/add',
+        springUrl+'/Cliente/add',
         cliente,
         {
           headers: new HttpHeaders({
@@ -40,7 +43,7 @@ export class RestService {
     // by get method
     return lastValueFrom(
       this._httpClient.get<IRestMessage>(
-        springUrl+`/usuarios/login?email=${credenciales.email}&password=${credenciales.password}`
+        springUrl+`/Cliente/login?email=${credenciales.email}&password=${credenciales.password}`
       )
     )
   }
@@ -66,6 +69,6 @@ export class RestService {
 
   //#region ZONA CHEFS
 
-  
+
   //#endregion
 }

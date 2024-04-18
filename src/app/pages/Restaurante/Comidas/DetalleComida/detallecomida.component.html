@@ -41,18 +41,21 @@
         <div>Grasas</div>
         <div>Proteinas</div>
       </div>
-      <div class="flex flex-col gap-y-2">
-        <div class="text-gray-500">{{this.comida.informacionAdicional.calorias}} Kcal</div>
-        <div class="text-gray-500">{{this.comida.informacionAdicional.carbohidratos}} g</div>
-        <div class="text-gray-500">{{this.comida.informacionAdicional.grasas}} g</div>
-        <div class="text-gray-500">{{this.comida.informacionAdicional.proteinas}} g</div>
-      </div>
-      <div class="flex flex-col gap-y-2 ">
-        <div class="text-gray-500">{{this.comida.informacionAdicional.calorias * 4}} Kcal</div>
-        <div class="text-gray-500">{{this.comida.informacionAdicional.carbohidratos * 4}} g</div>
-        <div class="text-gray-500">{{this.comida.informacionAdicional.grasas * 4}} g</div>
-        <div class="text-gray-500">{{this.comida.informacionAdicional.proteinas * 4}} g</div>
-      </div>
+      @if(this.comida) {
+        <div class="flex flex-col gap-y-2">
+          <div class="text-gray-500">{{this.comida.informacionAdicional.calorias}} Kcal</div>
+          <div class="text-gray-500">{{this.comida.informacionAdicional.carbohidratos}} g</div>
+          <div class="text-gray-500">{{this.comida.informacionAdicional.grasas}} g</div>
+          <div class="text-gray-500">{{this.comida.informacionAdicional.proteinas}} g</div>
+        </div>
+        <div class="flex flex-col gap-y-2 ">
+          <div class="text-gray-500">{{this.comida.informacionAdicional.calorias * 4}} Kcal</div>
+          <div class="text-gray-500">{{this.comida.informacionAdicional.carbohidratos * 4}} g</div>
+          <div class="text-gray-500">{{this.comida.informacionAdicional.grasas * 4}} g</div>
+          <div class="text-gray-500">{{this.comida.informacionAdicional.proteinas * 4}} g</div>
+        </div>
+      }
+      
     </div>
   </div>
   

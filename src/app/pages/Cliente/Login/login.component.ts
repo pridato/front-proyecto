@@ -36,10 +36,12 @@ export class LoginComponent {
     try {
       const _res = await this.restService.login(this.credenciales)
       console.log(_res)
-      if (_res.codigo == 200){
+      if (_res.codigo == 0){
+        // si la respuesta de spring ha sido positiva guardamos tanto el cliente como el jwt
         this.storage.guardarCliente(_res.datosCliente!)
-        
+        this.storage.guardarJwt(_res.token!)
         this.router.navigateByUrl('/Restaurante/Comidas')
+
       } else {
        throw new Error('Error en el login')
       }
