@@ -6,6 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { añadirJwtInterceptor } from './core/interceptors/añadir-jwt.interceptor';
+import { CommonModule } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,6 @@ export const appConfig: ApplicationConfig = {
     
     provideRouter(routes, withComponentInputBinding()),
     provideAnimations(),
-    provideToastr(), provideAnimationsAsync()
+    provideToastr(), provideAnimationsAsync(),
   ]
 };
