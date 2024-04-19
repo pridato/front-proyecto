@@ -32,10 +32,18 @@ export class LoginComponent {
 
   }
 
+  /**
+   * A través de las credenciales sacamos de spring el objeto entero. Nos interesa de aquí el jwt y el rol del usuario
+   * Ambas nos dejarán acceder a páginas determinadas...
+   * Para los roles en cada controlador de la página que nos interesa lo comprobamos a mano y listo
+   *
+   * @memberof LoginComponent
+   */
   async login() {
     try {
       const _res = await this.restService.login(this.credenciales)
       console.log(_res)
+      // obtenemos el rest message con todo 
       if (_res.codigo == 0){
         // si la respuesta de spring ha sido positiva guardamos tanto el cliente como el jwt
         this.storage.guardarCliente(_res.datosCliente!)

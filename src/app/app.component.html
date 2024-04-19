@@ -19,11 +19,11 @@
   </div>
 } @else {
   <app-header [menu]="menu" (toggleMenu)="onToggleMenu($event)" [pedido]="pedido" (togglePedido)="onTogglePedido($event)"/>
-  <router-outlet />
-  <app-footer class="w-full flex items-center my-5"/>
   @if(this.pedido){
     <app-comidascompradas [pedido]="pedido" (togglePedido)="onTogglePedido($event)" />
   }
+  <router-outlet />
+  
 }
 
 

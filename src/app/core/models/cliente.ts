@@ -8,5 +8,5 @@ export interface ICliente {
   telefono?: number;
   direccion: string;
   fechaRegistro: Date;
-  id_cocinero: string;
+  rol: string;
 }

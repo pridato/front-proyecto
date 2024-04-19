@@ -20,7 +20,7 @@ export class StorageService {
       direccion: '',
       fechaRegistro: new Date(),
       telefono: 0,
-      id_cocinero: ''
+      rol: ''
     }
   )
 

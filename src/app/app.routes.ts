@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { seguridadComidasGuard } from './core/guards/seguridad-comidas.guard';
 
 export const routes: Routes = [
   {
@@ -7,12 +8,12 @@ export const routes: Routes = [
   },
   {
     path: 'Restaurante',
+    canActivate: [seguridadComidasGuard],
     loadChildren: () => import('./pages/Restaurante/comida.route').then(m => m.COMIDA_ROUTES)
   },
+  {path: 'Dashboard', canActivate: [seguridadComidasGuard], loadChildren: () => import('./pages/Dashboard/dashboard.routes').then(m => m.DASHBOARD_ROUTES) },
   // redirigir directamente a registro
   {
-    path: '',
-    redirectTo: '/Cliente/Registro',
-    pathMatch: 'full'
+    path: '', redirectTo: '/Cliente/Login', pathMatch: 'full'
   },
 ];

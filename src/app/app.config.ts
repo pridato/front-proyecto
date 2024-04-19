@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([
         añadirJwtInterceptor
-      ])
+      ]),
     ),
     
     provideRouter(routes, withComponentInputBinding()),

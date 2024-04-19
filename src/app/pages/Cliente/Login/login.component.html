@@ -1,11 +1,11 @@
 <div class="px-5 w-full">
   <div class="flex justify-center">
     <div class="w-auto">
-      <div class="border-2 rounded-lg border-red-500 px-16 pt-6 pb-8 mb-4">
+      <div class="border-2 rounded-lg  px-16 pt-6 pb-8 mb-4">
         <div class="error">
           @if(this.error){
-            <div class=" bg-red-100  text-red-500 p-4">
-              <p class="font-bold">Error en el login...</p>
+            <div class=" text-red-500 p-4">
+              <p class="font-semibold">Error en el login...</p>
             </div>
           }
         </div>
@@ -39,7 +39,7 @@
           <div class="pt-4 flex justify-center">
             <button
             (click)="login()"
-              class="rounded-xl bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-2 uppercase"
+              class="rounded-xl bg-blue-400 hover:bg-blue-700 text-white font-bold py-3 px-5 uppercase"
             >
             Enviar
             </button>
@@ -48,7 +48,7 @@
       </div>
       <div class="flex flex-col justify-center items-center">
           <span>Tu primera vez en TuRestaurante? </span>
-          <a class="font-bold hover:text-blue-400" [routerLink]="['/Cliente/Registro']">Registrate aquí!</a>
+          <a class="font-bold hover:text-blue-400 " [routerLink]="['/Cliente/Registro']">Registrate aquí!</a>
       </div>
     </div>
   </div>
